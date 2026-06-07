@@ -22,47 +22,7 @@ local f=Instance.new("TextLabel",s)
 f.Size,f.AnchorPoint,f.Position,f.BackgroundColor3,f.BackgroundTransparency,f.TextColor3,f.Font,f.TextSize,f.Text=UDim2.new(0,110,0,35),Vector2.new(1,0),UDim2.new(1,-15,0,130),Color3.fromRGB(40,40,40),0.3,Color3.fromRGB(255,255,255),Enum.Font.GothamBold,18,"FPS: ..."
 Instance.new("UICorner",f).CornerRadius=UDim.new(0,8)
 
--- ========== XÓA BẦU TRỜI ROBLOX ==========
-local Lighting = game:GetService("Lighting")
-local Terrain = game:GetService("Workspace").Terrain
 
--- 1. Xóa mây
-if Terrain:FindFirstChild("Clouds") then
-    Terrain.Clouds:Destroy()
-end
-
--- 2. Xóa Sky cũ
-local oldSky = Lighting:FindFirstChildOfClass("Sky")
-if oldSky then
-    oldSky:Destroy()
-end
-
--- 3. Tạo Sky mới nhưng tắt sao, mặt trăng, mặt trời
-local newSky = Instance.new("Sky")
-newSky.Parent = Lighting
-newSky.StarCount = 0
-newSky.SunAngularSize = 0
-newSky.MoonAngularSize = 0
-newSky.CelestialBodiesShown = false
-
--- 4. Tùy chỉnh Atmosphere để tối đa
-local atmosphere = Instance.new("Atmosphere")
-atmosphere.Parent = Lighting
-atmosphere.Density = 0
-atmosphere.Offset = 0
-atmosphere.Color = Color3.new(0, 0, 0)
-atmosphere.Decay = Color3.new(0, 0, 0)
-atmosphere.Glare = 0
-atmosphere.Haze = 0
-
--- 5. Tùy chỉnh Lighting để không có ánh sáng dư thừa
-Lighting.Ambient = Color3.new(0, 0, 0)
-Lighting.OutdoorAmbient = Color3.new(0, 0, 0)
-Lighting.Brightness = 0
-Lighting.GlobalShadows = false
-Lighting.FogColor = Color3.new(0, 0, 0)
-Lighting.FogEnd = 0
--- ========== KẾT THÚC XÓA BẦU TRỜI ==========
 
 -- ========== PHẦN ĐO FPS (CHÍNH XÁC & KHÔNG LAG) ==========
 local frameCount = 0
