@@ -8,9 +8,9 @@ local n=Instance.new("TextLabel",s)
 n.Size,n.AnchorPoint,n.Position,n.BackgroundTransparency,n.Font,n.TextColor3,n.TextStrokeTransparency,n.TextSize,n.Text=UDim2.new(0,400,0,150),Vector2.new(0.5,0),UDim2.new(0.5,0,0,50),1,Enum.Font.PermanentMarker,Color3.fromRGB(255,255,0),0,35,""
 task.spawn(function()
     n.Text="Xin chào"
-    task.wait(0.5)
+    task.wait(1.4)
     n.Text="by Cuongdz210"
-    task.wait(0.5)
+    task.wait(1.4)
     n.Text="Script show fps"
     task.wait(5)
     local t=tw:Create(n,TweenInfo.new(1.5),{TextTransparency=1,TextStrokeTransparency=1})
